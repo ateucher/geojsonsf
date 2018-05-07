@@ -188,23 +188,23 @@ head(sf)
 ## Reading from URL
 
 ```{r}
-url <- "http://eric.clst.org/assets/wiki/uploads/Stuff/gz_2010_us_050_00_500k.json"
-sf <- geojson_sf(url)
-head(sf)
+# url <- "http://eric.clst.org/assets/wiki/uploads/Stuff/gz_2010_us_050_00_500k.json"
+# sf <- geojson_sf(url)
+# head(sf)
 ```
 
 ## Reading from file
 
 ```{r}
-sf <- geojson_sf(system.file("examples", "geo_melbourne.geojson", package = "geojsonsf"))
-head(sf)
+# sf <- geojson_sf(system.file("examples", "geo_melbourne.geojson", package = "geojsonsf"))
+# head(sf)
 ```
 
 ## sf to GeoJSON
 
 ```{r}
-geo <- sf_geojson(sf)
-substr(geo, 1, 80)
+# geo <- sf_geojson(sf)
+# substr(geo, 1, 80)
 ```
 
 ### Atomising
@@ -212,14 +212,14 @@ substr(geo, 1, 80)
 Sometimes it's useful to convert each row of an `sf` object into it's own GeoJSON object, for example when you want to keep each geometry separate in a database. Set `atomise = TRUE` to return a vector of GeoJSON
 
 ```{r}
-geo <- sf_geojson(sf, atomise = T)
+# geo <- sf_geojson(sf, atomise = T)
 ```
 
 now `geo` is a vector of GeoJSON
 
 ```{r}
-substr(geo[1], 1, 80)
-substr(geo[2], 1, 80)
+# substr(geo[1], 1, 80)
+# substr(geo[2], 1, 80)
 ```
 
 ## Well-known Text
