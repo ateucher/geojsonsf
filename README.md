@@ -268,9 +268,12 @@ microbenchmark(
     times = 2
 )
 #  Unit: milliseconds
-#        expr      min       lq      mean    median        uq       max neval
-#   geojsonsf  681.376  681.376  718.0487  718.0487  754.7214  754.7214     2
-#          sf 1814.307 1814.307 1816.5013 1816.5013 1818.6955 1818.6955     2
+#        expr       min        lq      mean    median        uq       max
+#   geojsonsf  732.9752  732.9752  741.1705  741.1705  749.3658  749.3658
+#          sf 1901.2941 1901.2941 1991.1808 1991.1808 2081.0676 2081.0676
+#   neval
+#       2
+#       2
 ```
 
 Reading directly from a URL is comparable between the
@@ -292,8 +295,8 @@ microbenchmark(
 )
 #  Unit: seconds
 #        expr      min       lq     mean   median       uq      max neval
-#   geojsonsf 6.617584 6.617584 6.680125 6.680125 6.742666 6.742666     2
-#          sf 6.914326 6.914326 7.672934 7.672934 8.431542 8.431542     2
+#   geojsonsf 6.511835 6.511835 6.613523 6.613523 6.715211 6.715211     2
+#          sf 7.828532 7.828532 8.335510 8.335510 8.842488 8.842488     2
 ```
 
     library(rgdal)
@@ -325,11 +328,7 @@ google_map() %>%
             stroke_weight = 0)
 ```
 
-<img src="./man/figures/GeoJSONSF.png" width="100%" />
-
 ``` r
-sf <- sf::st_read(geo, quiet = T)
-plot(st_geometry(sf[!sf$STATE %in% c("02", "15", "72"), ]))
+# sf <- sf::st_read(geo, quiet = T)
+# plot(st_geometry(sf[!sf$STATE %in% c("02", "15", "72"), ]))
 ```
-
-<img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />

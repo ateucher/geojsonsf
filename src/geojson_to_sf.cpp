@@ -1,23 +1,23 @@
-
 #include <algorithm>
 #include <Rcpp.h>
+
 #include "rapidjson/document.h"
 #include "rapidjson/stringbuffer.h"
 #include "rapidjson/writer.h"
-
 #include "geojsonsf.h"
 #include "geojson_to_sf.h"
+
 #include "geojson_sfc.h"
 #include "geojson_sfg.h"
 #include "geojson_validate.h"
 #include "geojson_properties.h"
 
 using namespace Rcpp;
-
 template <int RTYPE>
 Rcpp::CharacterVector sfClass(Vector<RTYPE> v) {
 	return v.attr("class");
 }
+
 
 Rcpp::CharacterVector getSfClass(SEXP sf) {
 
@@ -384,7 +384,6 @@ void setup_property_vectors(std::map< std::string, std::string>& property_types,
   }
 }
 
-
 void nested_json_to_string(rapidjson::Value& v,
                            std::string& type,
                            Rcpp::List& properties,
@@ -576,3 +575,4 @@ Rcpp::List generic_geojson_to_sf(Rcpp::StringVector geojson, bool& expand_geomet
 Rcpp::List rcpp_geojson_to_sf(Rcpp::StringVector geojson, bool expand_geometries) {
 	return generic_geojson_to_sf(geojson, expand_geometries);
 }
+

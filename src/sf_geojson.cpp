@@ -1,3 +1,4 @@
+
 #include "geojsonsf.h"
 #include "geojson_wkt.h"
 #include "sf_geojson.h"
@@ -428,3 +429,4 @@ Rcpp::StringVector rcpp_sf_to_geojson(Rcpp::List sf, bool atomise) {
   return res;
 
 }
+

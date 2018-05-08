@@ -201,12 +201,12 @@ google_map() %>%
 ```
 
 ```{r, echo = FALSE}
-knitr::include_graphics("./man/figures/GeoJSONSF.png")
+#knitr::include_graphics("./man/figures/GeoJSONSF.png")
 ```
 
 ```{r}
-sf <- sf::st_read(geo, quiet = T)
-plot(st_geometry(sf[!sf$STATE %in% c("02", "15", "72"), ]))
+# sf <- sf::st_read(geo, quiet = T)
+# plot(st_geometry(sf[!sf$STATE %in% c("02", "15", "72"), ]))
 ```
 
 

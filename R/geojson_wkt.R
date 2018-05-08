@@ -11,5 +11,5 @@
 #' geojson_wkt(geojson)
 #'
 #' @export
-geojson_wkt <- function(geojson) rcpp_geojson_to_wkt(geojson)
+geojson_wkt <- function(geojson) {} #rcpp_geojson_to_wkt(geojson)
 

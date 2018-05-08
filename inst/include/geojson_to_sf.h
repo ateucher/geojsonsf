@@ -98,6 +98,6 @@ Rcpp::List construct_sf(Rcpp::List& lst, std::set< std::string >& property_keys,
 
 Rcpp::List generic_geojson_to_sf(Rcpp::StringVector geojson, bool& expand_geometries);
 
-Rcpp::List create_sfc(Rcpp::StringVector geojson, bool& expand_geometries);
+//Rcpp::List create_sfc(Rcpp::StringVector geojson, bool& expand_geometries);
 
 #endif

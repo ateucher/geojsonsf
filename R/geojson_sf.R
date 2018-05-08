@@ -35,22 +35,22 @@ geojson_sfc <- function(geojson, expand_geometries = FALSE) UseMethod("geojson_s
 #' @export
 geojson_sfc.character <- function(geojson, expand_geometries = FALSE) {
 
-	if(length(geojson) > 1) {
-		return(rcpp_geojson_to_sfc(geojson, expand_geometries))
-	}
-	if (is_url(geojson)) {
-		return(geojson_sfc(curl::curl(geojson), expand_geometries))
-	} else if (file.exists(geojson) ) {
-		return(rcpp_read_sfc_file(normalizePath(geojson), expand_geometries))
-	}
-	return(rcpp_geojson_to_sfc(geojson, expand_geometries))
+	# if(length(geojson) > 1) {
+	# 	return(rcpp_geojson_to_sfc(geojson, expand_geometries))
+	# }
+	# if (is_url(geojson)) {
+	# 	return(geojson_sfc(curl::curl(geojson), expand_geometries))
+	# } else if (file.exists(geojson) ) {
+	# 	return(rcpp_read_sfc_file(normalizePath(geojson), expand_geometries))
+	# }
+	# return(rcpp_geojson_to_sfc(geojson, expand_geometries))
 }
 
 #' @export
 geojson_sfc.connection <- function(geojson, expand_geometries = FALSE) geojson_sfc(read_url(geojson), expand_geometries)
 
 #' @export
-geojson_sfc.default <- function(geojson, expand_geometries = FALSE) rcpp_geojson_to_sfc(geojson, expand_geometries)
+geojson_sfc.default <- function(geojson, expand_geometries = FALSE) {} #rcpp_geojson_to_sfc(geojson, expand_geometries)
 
 #' Geojson to sf
 #'
@@ -80,22 +80,22 @@ geojson_sf <- function(geojson, expand_geometries = FALSE) UseMethod("geojson_sf
 #' @export
 geojson_sf.character <- function(geojson, expand_geometries = FALSE) {
 
-	if(length(geojson) > 1) {
-		return(rcpp_geojson_to_sf(geojson, expand_geometries))
-	}
-	if (is_url(geojson)) {
-		return(geojson_sf(curl::curl(geojson), expand_geometries))
-	} else if (file.exists(geojson) ) {
-		return(rcpp_read_sf_file(normalizePath(geojson), expand_geometries))
-	}
-	 return(rcpp_geojson_to_sf(geojson, expand_geometries))
+	# if(length(geojson) > 1) {
+	# 	return(rcpp_geojson_to_sf(geojson, expand_geometries))
+	# }
+	# if (is_url(geojson)) {
+	# 	return(geojson_sf(curl::curl(geojson), expand_geometries))
+	# } else if (file.exists(geojson) ) {
+	# 	return(rcpp_read_sf_file(normalizePath(geojson), expand_geometries))
+	# }
+	#  return(rcpp_geojson_to_sf(geojson, expand_geometries))
 }
 
 #' @export
 geojson_sf.connection <- function(geojson, expand_geometries = F) geojson_sf(read_url(geojson), expand_geometries)
 
 #' @export
-geojson_sf.default <- function(geojson, expand_geometries = F) rcpp_geojson_to_sf(geojson, expand_geometries)
+geojson_sf.default <- function(geojson, expand_geometries = F) {} #rcpp_geojson_to_sf(geojson, expand_geometries)
 
 #' sf to GeoJSON
 #'
@@ -115,11 +115,11 @@ geojson_sf.default <- function(geojson, expand_geometries = F) rcpp_geojson_to_s
 #' sf_geojson(sf, atomise = T)
 #' }
 #'
-#' @export
+#'
 sf_geojson <- function(sf, atomise = FALSE) UseMethod("sf_geojson")
 
-#' @export
-sf_geojson.sf <- function(sf, atomise = FALSE) rcpp_sf_to_geojson(sf, atomise)
+#'
+sf_geojson.sf <- function(sf, atomise = FALSE) {} #rcpp_sf_to_geojson(sf, atomise)
 
 
 #' sfc to GeoJSON
@@ -136,11 +136,11 @@ sf_geojson.sf <- function(sf, atomise = FALSE) rcpp_sf_to_geojson(sf, atomise)
 #' sf <- sf::st_sfc(list(sf::st_point(c(0,0)), sf::st_point(c(1,1))))
 #' sfc_geojson(sf)
 #' }
-#' @export
+#'
 sfc_geojson <- function(sfc) UseMethod("sfc_geojson")
 
-#' @export
-sfc_geojson.sfc <- function(sfc) rcpp_sfc_to_geojson(sfc)
+
+sfc_geojson.sfc <- function(sfc) {} #rcpp_sfc_to_geojson(sfc)
 
 sf_geojson.default <- function(sf, atomise = FALSE) stop("Expected an sf object")
 sfc_geojson.default <- function(sfc) stop("Expected an sfc object")

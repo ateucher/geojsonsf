@@ -26,4 +26,5 @@ sf_geojson(sf)
 sf_geojson(sf, atomise = T)
 }
 
+
 }
