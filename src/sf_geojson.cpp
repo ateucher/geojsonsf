@@ -1,10 +1,10 @@
 #include "geojsonsf.h"
-#include "geojson_wkt.h"
-#include "sf_geojson.h"
-#include "rapidjson/writer.h"
-#include "rapidjson/stringbuffer.h"
+//#include "geojson_wkt.h"
+//#include "sf_geojson.h"
+//#include "rapidjson/writer.h"
+//#include "rapidjson/stringbuffer.h"
 
-#include <Rcpp.h>
+//#include <Rcpp.h>
 using namespace Rcpp;
 
 void get_column_type(Rcpp::List& sf,

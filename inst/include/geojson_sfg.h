@@ -1,7 +1,7 @@
 #ifndef GEOJSON_SFG_H
 #define GEOJSON_SFG_H
 
-#include "rapidjson/document.h"
+//#include "rapidjson/document.h"
 
 #include <Rcpp.h>
 using namespace Rcpp;

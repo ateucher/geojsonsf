@@ -1,12 +1,11 @@
 
-#include "rapidjson/document.h"
-#include <Rcpp.h>
+//#include "rapidjson/document.h"
+//#include <Rcpp.h>
 #include <sstream>
 #include "geojsonsf.h"
+
 using namespace rapidjson;
 using namespace Rcpp;
-
-
 
 /*
  * Updates a list element to string

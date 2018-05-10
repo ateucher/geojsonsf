@@ -1,12 +1,12 @@
-#include <Rcpp.h>
-#include <rapidjson/document.h>
-#include <rapidjson/istreamwrapper.h>
+//#include <Rcpp.h>
+//#include <rapidjson/document.h>
+//#include <rapidjson/istreamwrapper.h>
 
 #include "geojsonsf.h"
 #include "geojson_to_sf.h"
-#include "geojson_sfc.h"
-#include "geojson_sfg.h"
-#include "geojson_properties.h"
+//#include "geojson_sfc.h"
+//#include "geojson_sfg.h"
+//#include "geojson_properties.h"
 #include <fstream>
 
 using namespace Rcpp;

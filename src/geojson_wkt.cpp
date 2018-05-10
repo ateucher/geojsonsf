@@ -1,9 +1,11 @@
 
-#include "rapidjson/document.h"
+//#include "rapidjson/document.h"
 #include <Rcpp.h>
+
 #include "geojsonsf.h"
-#include "geojson_sfg.h"
-#include "geojson_validate.h"
+//#include "geojson_sfg.h"
+//#include "geojson_validate.h"
+
 using namespace rapidjson;
 using namespace Rcpp;
 
@@ -50,9 +52,9 @@ void object_separator(std::ostringstream& os) {
 }
 
 void coord_separator(std::ostringstream& os, int i, int n) {
-  if (i < (n - 1) ) {
-    os << ",";
-  }
+	if (i < (n - 1) ) {
+		os << ",";
+	}
 }
 
 void line_separator_wkt(std::ostringstream& os, int i, int n) {
@@ -67,7 +69,6 @@ void polygon_separate_wkt(std::ostringstream& os, int i, int n) {
 	}
 }
 
-
 void add_lonlat_to_wkt_stream(std::ostringstream& os, float lon, float lat ) {
   os << lon << " " << lat;
 }
@@ -79,7 +80,7 @@ void point_to_wkt(std::ostringstream& os, const Value& coord_array) {
   add_lonlat_to_wkt_stream(os, point[0], point[1]);
 }
 
-
+/*
 void multi_point_to_wkt(std::ostringstream& os, const Value& coord_array) {
   size_t n = coord_array.Size();
 	unsigned int i;
@@ -129,5 +130,4 @@ void multi_polygon_to_wkt(std::ostringstream& os, const Value& coord_array) {
     polygon_separate_wkt(os, i, n);
   }
 }
-
-
+*/

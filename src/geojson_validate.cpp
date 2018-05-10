@@ -2,6 +2,7 @@
 #include "rapidjson/document.h"
 #include <string.h>
 
+
 #include <Rcpp.h>
 using namespace Rcpp;
 using namespace rapidjson;

@@ -1,8 +1,19 @@
 #ifndef GEOJSONSF_H
 #define GEOJSONSF_H
 
-
+#include "rapidjson/document.h"
 #include <Rcpp.h>
+
+#include "geojson_sfg.h"
+#include "geojson_sfc.h"
+#include "geojson_validate.h"
+
+//#include "geojson_to_sf.h"
+//#include "geojson_properties.h"
+
+#include "geojson_wkt.h"
+#include "sf_geojson.h"
+
 using namespace Rcpp;
 
 // [[Rcpp::depends(rapidjsonr)]]

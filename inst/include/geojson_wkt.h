@@ -2,7 +2,7 @@
 #ifndef GEOJSON_WKT_H
 #define GEOJSON_WKT_H
 
-#include "rapidjson/document.h"
+//#include "rapidjson/document.h"
 using namespace rapidjson;
 
 void coord_separator(std::ostringstream& os, int i, int n);

@@ -1,9 +1,11 @@
 #ifndef GEOJSON_TO_SF_H
 #define GEOJSON_TO_SF_H
 
-#include "rapidjson/document.h"
+//#include "rapidjson/document.h"
 
-#include <Rcpp.h>
+//#include <Rcpp.h>
+#include "geojsonsf.h"
+
 using namespace Rcpp;
 using namespace rapidjson;
 

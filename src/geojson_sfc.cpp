@@ -1,6 +1,6 @@
-#include <Rcpp.h>
+//#include <Rcpp.h>
 #include "geojsonsf.h"
-#include "geojson_sfc.h"
+//#include "geojson_sfc.h"
 
 using namespace Rcpp;
 

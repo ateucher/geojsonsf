@@ -1,13 +1,14 @@
 
-#include "rapidjson/document.h"
-#include <Rcpp.h>
+//#include "rapidjson/document.h"
+//#include <Rcpp.h>
 #include "geojsonsf.h"
-#include "geojson_sfc.h"
-#include "geojson_sfg.h"
+//#include "geojson_sfc.h"
+//#include "geojson_sfg.h"
+//#include "geojson_validate.h"
+//#include "geojson_wkt.h"
+
 #include "geojson_to_sf.h"
-#include "geojson_validate.h"
 #include "geojson_properties.h"
-#include "geojson_wkt.h"
 
 using namespace rapidjson;
 using namespace Rcpp;
@@ -34,19 +35,19 @@ void parse_geometry_object_wkt(Rcpp::List& sfc,
     point_to_wkt(os, coord_array);
 
   } else if (geom_type == "MultiPoint") {
-    multi_point_to_wkt(os, coord_array);
+    //multi_point_to_wkt(os, coord_array);
 
   } else if (geom_type == "LineString") {
-    line_string_to_wkt(os, coord_array);
+    //line_string_to_wkt(os, coord_array);
 
   } else if (geom_type == "MultiLineString") {
-    multi_line_string_to_wkt(os, coord_array);
+    //multi_line_string_to_wkt(os, coord_array);
 
   } else if (geom_type == "Polygon") {
-    polygon_to_wkt(os, coord_array);
+    //polygon_to_wkt(os, coord_array);
 
   } else if (geom_type == "MultiPolygon") {
-    multi_polygon_to_wkt(os, coord_array);
+    //multi_polygon_to_wkt(os, coord_array);
 
   } else {
     Rcpp::stop("unknown sfg type");

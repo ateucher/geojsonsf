@@ -1,8 +1,8 @@
 #ifndef GEOJSONSF_PROPERTIES_H
 #define GEOJSONSF_PROPERTIES_H
 
-#include "rapidjson/document.h"
-#include <Rcpp.h>
+//#include "rapidjson/document.h"
+//#include <Rcpp.h>
 using namespace rapidjson;
 using namespace Rcpp;
 

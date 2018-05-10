@@ -2,7 +2,7 @@
 #ifndef GEOJSONSF_VALIDATE_H
 #define GEOJSONSF_VALIDATE_H
 
-#include "rapidjson/document.h"
+//#include "rapidjson/document.h"
 
 using namespace rapidjson;
 
