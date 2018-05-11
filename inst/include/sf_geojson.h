@@ -1,3 +1,4 @@
+/*
 #ifndef SFGEOJSON_H
 #define SFGEOJSON_H
 
@@ -17,6 +18,8 @@ void fetch_coordinates(Rcpp::String& geojson, Rcpp::List& sfc, int& object_count
 
 void coord_separator(Rcpp::String& geojson, int i, int n);
 
+void coord_separator(std::ostringstream& os, int i, int n);
+
 void line_separator_geojson(Rcpp::String& geojson, int i, int n);
 
 void polygon_separator_geojson(Rcpp::String& geojson, int i, int n);
@@ -28,3 +31,4 @@ void write_geometry(SEXP sfg, Rcpp::String& geojson);
 void make_gc_type(Rcpp::String& geojson, Rcpp::List& sfg, std::string& geom_type, Rcpp::CharacterVector& cls);
 
 #endif
+*/

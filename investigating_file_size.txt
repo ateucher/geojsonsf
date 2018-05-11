@@ -1,0 +1,10 @@
+
+- geojson_wkt.R, geojson_wkt.cpp, geojson_to_wkt.cpp, geojosn_wkt.h - nothing!
+- Vignette - fixes vignette build error
+- Readme - nope
+- removing geojson_wkt.cpp & geojson_to_wkt.cpp - nope
+- removing geojson_wkt.h, read_geojson.cpp - nope (but reduces it)
+- removed DISTRICT_R_HEADERS - nope, putting back in
+- restructuring #include s to include what's needed in each file
+- removed sf_geojson.cpp, .h, & .R functions - reduces the size...
+

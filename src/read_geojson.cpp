@@ -1,3 +1,5 @@
+
+/*
 //#include <Rcpp.h>
 //#include <rapidjson/document.h>
 //#include <rapidjson/istreamwrapper.h>
@@ -19,14 +21,12 @@ Rcpp::StringVector buffer_string(std::string file) {
   return buffer.str();
 }
 
-// [[Rcpp::export]]
 Rcpp::List rcpp_read_sfc_file(std::string file, bool flatten_geometries) {
   return create_sfc(buffer_string(file), flatten_geometries);
 }
 
 
-// [[Rcpp::export]]
 Rcpp::List rcpp_read_sf_file(std::string file, bool flatten_geometries) {
   return generic_geojson_to_sf(buffer_string(file), flatten_geometries);
 }
-
+*/

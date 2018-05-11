@@ -22,7 +22,7 @@
 #' geojson <- '{ "type" : "Point", "coordinates" : [0, 0] }'
 #' geojson_sfc(geojson)
 #'
-#'\dontrun{
+#' \dontrun{
 #' ## GeoJSON at a url
 #' myurl <- "http://eric.clst.org/assets/wiki/uploads/Stuff/gz_2010_us_050_00_500k.json"
 #' sf <- geojson_sfc(myurl)
@@ -66,7 +66,7 @@ geojson_sfc.default <- function(geojson, expand_geometries = FALSE) rcpp_geojson
 #' geojson_sf(geojson)
 #'
 #'
-#'\dontrun{
+#' \dontrun{
 #' ## GeoJSON at a url
 #' myurl <- "http://eric.clst.org/assets/wiki/uploads/Stuff/gz_2010_us_050_00_500k.json"
 #' sf <- geojson_sf(myurl)
@@ -119,7 +119,7 @@ geojson_sf.default <- function(geojson, expand_geometries = F) rcpp_geojson_to_s
 sf_geojson <- function(sf, atomise = FALSE) UseMethod("sf_geojson")
 
 #' @export
-sf_geojson.sf <- function(sf, atomise = FALSE) rcpp_sf_to_geojson(sf, atomise)
+sf_geojson.sf <- function(sf, atomise = FALSE) {} #rcpp_sf_to_geojson(sf, atomise)
 
 
 #' sfc to GeoJSON
@@ -140,7 +140,7 @@ sf_geojson.sf <- function(sf, atomise = FALSE) rcpp_sf_to_geojson(sf, atomise)
 sfc_geojson <- function(sfc) UseMethod("sfc_geojson")
 
 #' @export
-sfc_geojson.sfc <- function(sfc) rcpp_sfc_to_geojson(sfc)
+sfc_geojson.sfc <- function(sfc) {}#rcpp_sfc_to_geojson(sfc)
 
 sf_geojson.default <- function(sf, atomise = FALSE) stop("Expected an sf object")
 sfc_geojson.default <- function(sfc) stop("Expected an sfc object")

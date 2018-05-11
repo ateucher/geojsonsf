@@ -9,23 +9,3 @@ rcpp_geojson_to_sf <- function(geojson, expand_geometries) {
     .Call(`_geojsonsf_rcpp_geojson_to_sf`, geojson, expand_geometries)
 }
 
-rcpp_geojson_to_wkt <- function(geojson) {
-    .Call(`_geojsonsf_rcpp_geojson_to_wkt`, geojson)
-}
-
-rcpp_read_sfc_file <- function(file, flatten_geometries) {
-    .Call(`_geojsonsf_rcpp_read_sfc_file`, file, flatten_geometries)
-}
-
-rcpp_read_sf_file <- function(file, flatten_geometries) {
-    .Call(`_geojsonsf_rcpp_read_sf_file`, file, flatten_geometries)
-}
-
-rcpp_sfc_to_geojson <- function(sfc) {
-    .Call(`_geojsonsf_rcpp_sfc_to_geojson`, sfc)
-}
-
-rcpp_sf_to_geojson <- function(sf, atomise) {
-    .Call(`_geojsonsf_rcpp_sf_to_geojson`, sf, atomise)
-}
-

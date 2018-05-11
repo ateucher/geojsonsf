@@ -1,6 +1,7 @@
+/*
 #include "geojsonsf.h"
 //#include "geojson_wkt.h"
-//#include "sf_geojson.h"
+#include "sf_geojson.h"
 //#include "rapidjson/writer.h"
 //#include "rapidjson/stringbuffer.h"
 
@@ -80,6 +81,13 @@ void coord_separator(Rcpp::String& geojson, int i, int n) {
   if (i < (n - 1) ) {
     geojson += ",";
   }
+}
+
+// copied from geojson_wkt.cpp
+void coord_separator(std::ostringstream& os, int i, int n) {
+	if (i < (n - 1) ) {
+		os << ",";
+	}
 }
 
 void object_separator(Rcpp::String& geojson, int i, int n) {
@@ -428,3 +436,4 @@ Rcpp::StringVector rcpp_sf_to_geojson(Rcpp::List sf, bool atomise) {
   return res;
 
 }
+*/

@@ -3,14 +3,14 @@
 #include "geojsonsf.h"
 //#include <Rcpp.h>
 
-//#include "rapidjson/document.h"
+#include "rapidjson/document.h"
 #include "rapidjson/stringbuffer.h"
 #include "rapidjson/writer.h"
 
 #include "geojson_to_sf.h"
-//#include "geojson_sfc.h"
-//#include "geojson_sfg.h"
-//#include "geojson_validate.h"
+#include "geojson_sfc.h"
+#include "geojson_sfg.h"
+#include "geojson_validate.h"
 #include "geojson_properties.h"
 
 using namespace Rcpp;
@@ -48,7 +48,6 @@ void parse_geometry_object(Rcpp::List& sfc,
   std::string geom_type = geometry["type"].GetString();
   const Value& coord_array = geometry["coordinates"];
   geometry_types.insert(geom_type);
-
 
   if (geom_type == "Point") {
     Rcpp::NumericVector point = get_point(coord_array, bbox);

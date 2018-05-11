@@ -1,5 +1,5 @@
 
-//#include "rapidjson/document.h"
+#include "rapidjson/document.h"
 //#include <Rcpp.h>
 #include <sstream>
 #include "geojsonsf.h"

@@ -1,10 +1,10 @@
-//#include "rapidjson/document.h"
+#include "rapidjson/document.h"
 
 //#include <Rcpp.h>
 #include "geojsonsf.h"
 //#include "geojson_sfg.h"
-//#include "geojson_sfc.h"
-//#include "geojson_validate.h"
+#include "geojson_sfc.h"
+#include "geojson_validate.h"
 
 using namespace Rcpp;
 using namespace rapidjson;
@@ -47,7 +47,6 @@ Rcpp::NumericMatrix parse_line(const Value& coord_array, Rcpp::NumericVector& bb
   }
   return line_string;
 }
-
 
 Rcpp::NumericMatrix get_multi_point(const Value& multi_point_array, Rcpp::NumericVector& bbox) {
   Rcpp::NumericMatrix multi_point = parse_line(multi_point_array, bbox);
