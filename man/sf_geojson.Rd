@@ -9,7 +9,9 @@ sf_geojson(sf, atomise = FALSE)
 \arguments{
 \item{sf}{simple feature object}
 
-\item{atomise}{logical}
+\item{atomise}{logical. Should the returned object be a vector of GeoJSON
+features (`TRUE`), or a single `FeatureCollection` containing the GeoJSON
+features (`FALSE`, the default)?}
 }
 \value{
 vector of GeoJSON

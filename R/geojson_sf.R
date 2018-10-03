@@ -102,7 +102,9 @@ geojson_sf.default <- function(geojson, expand_geometries = F) rcpp_geojson_to_s
 #' Converts `sf` objects to GeoJSON
 #'
 #' @param sf simple feature object
-#' @param atomise logical
+#' @param atomise logical. Should the returned object be a vector of GeoJSON
+#' features (`TRUE`), or a single `FeatureCollection` containing the GeoJSON
+#' features (`FALSE`, the default)?
 #'
 #' @return vector of GeoJSON
 #'
@@ -130,6 +132,9 @@ sf_geojson.sf <- function(sf, atomise = FALSE) {
 #' Converts `sfc` objects to GeoJSON
 #'
 #' @param sfc simple feature collection object
+#' @param atomise logical. Should the returned object be a vector of GeoJSON
+#' objects (`TRUE`, the default), or a single `GeometryCollection` containing
+#' the GeoJSON objects (`FALSE`)
 #'
 #' @return vector of GeoJSON
 #'
@@ -140,10 +145,10 @@ sf_geojson.sf <- function(sf, atomise = FALSE) {
 #' sfc_geojson(sf)
 #' }
 #' @export
-sfc_geojson <- function(sfc) UseMethod("sfc_geojson")
+sfc_geojson <- function(sfc, atomise = TRUE) UseMethod("sfc_geojson")
 
 #' @export
-sfc_geojson.sfc <- function(sfc) rcpp_sfc_to_geojson(sfc)
+sfc_geojson.sfc <- function(sfc, atomise = TRUE) rcpp_sfc_to_geojson(sfc, atomise)
 
 sf_geojson.default <- function(sf, atomise = FALSE) stop("Expected an sf object")
 sfc_geojson.default <- function(sfc) stop("Expected an sfc object")

@@ -348,11 +348,30 @@ Rcpp::String matrix_row_to_json(Rcpp::StringMatrix& json_mat, int i) {
 }
 
 // [[Rcpp::export]]
-Rcpp::StringVector rcpp_sfc_to_geojson(Rcpp::List sfc) {
+Rcpp::StringVector rcpp_sfc_to_geojson(Rcpp::List sfc, bool atomise) {
 	Rcpp::StringVector geometry_json(sfc.length());
 	geometry_vector_to_geojson(geometry_json, sfc);
-	return geometry_json;
+
+	if (atomise || geometry_json.length() == 1) {
+		return geometry_json;
+	}
+
+	Rcpp::StringVector gc;
+	std::ostringstream os;
+
+	os << "{\"type\":\"GeometryCollection\",\"geometries\":[";
+	for (int i = 0; i < geometry_json.length(); i++) {
+		os << geometry_json[i];
+		if (i < (geometry_json.length() - 1) ) {
+			os << ",";
+		}
+	}
+	os << "]}";
+	gc = os.str();
+	return gc;
 }
+
+
 
 // [[Rcpp::export]]
 Rcpp::StringVector rcpp_sf_to_geojson(Rcpp::List sf, bool atomise) {
@@ -393,7 +412,7 @@ Rcpp::StringVector rcpp_sf_to_geojson(Rcpp::List sf, bool atomise) {
 		this_vector = as< Rcpp::StringVector >(sf_copy[this_name]);
 		vector_to_json(this_vector, this_type, this_name);
 		json_mat(_, i) = this_vector;
-	// TODO: what if there's a mssing element?
+		// TODO: what if there's a mssing element?
 	}
 
 	Rcpp::StringVector geometry_json( sfc.length() );
@@ -402,36 +421,39 @@ Rcpp::StringVector rcpp_sf_to_geojson(Rcpp::List sf, bool atomise) {
 	Rcpp::StringVector res(json_mat.nrow());
 
 	// If properties, do this bit. else return a vector (column of matrix)
-  if (json_mat.ncol() > 1) {
-  	for (int i = 0; i < res.length(); i++) {
-      res[i] = matrix_row_to_json(json_mat, i);
-    }
-  } else {
-  	res = json_mat(_, 0);
-  }
+	if (json_mat.ncol() > 1) {
+		for (int i = 0; i < res.length(); i++) {
+			res[i] = matrix_row_to_json(json_mat, i);
+		}
+	} else {
+		res = json_mat(_, 0);
+	}
 
-  if(atomise) {
-  	return res;
-  }
+  // If length 1 don't need FeatureCollection, can just return the feature
+	if (atomise || res.length() == 1) {
+		return res;
+	}
 
-  if (json_mat.ncol() > 1) {
-  	// it has properties
-  	Rcpp::StringVector fc;
-  	std::ostringstream os;
+	Rcpp::StringVector fc;
+	std::ostringstream os;
 
-  	// Iff more than one row, it's a feature collection
-  	// else, it's just a feature...
-  	os << "{\"type\":\"FeatureCollection\",\"features\":[";
-  	for (int i = 0; i < res.length(); i++) {
-  		os << res[i];
-  		if (i < (res.length() - 1) ) {
-  			os << ",";
-  		}
-  	}
-  	os << "]}";
-  	fc = os.str();
-  	return fc;
-  }
-  return res;
+	if (json_mat.ncol() > 1) {
+		// it has properties
+		os << "{\"type\":\"FeatureCollection\",\"features\":[";
+	} else {
+		os << "{\"type\":\"GeometryCollection\",\"geometries\":[";
+	}
+
+	// Iff more than one row, it's a feature collection
+	// else, it's just a feature...
+	for (int i = 0; i < res.length(); i++) {
+		os << res[i];
+		if (i < (res.length() - 1) ) {
+			os << ",";
+		}
+	}
+	os << "]}";
+	fc = os.str();
+	return fc;
 
 }

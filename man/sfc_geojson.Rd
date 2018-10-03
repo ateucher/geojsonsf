@@ -4,10 +4,14 @@
 \alias{sfc_geojson}
 \title{sfc to GeoJSON}
 \usage{
-sfc_geojson(sfc)
+sfc_geojson(sfc, atomise = TRUE)
 }
 \arguments{
 \item{sfc}{simple feature collection object}
+
+\item{atomise}{logical. Should the returned object be a vector of GeoJSON
+objects (`TRUE`, the default), or a single `GeometryCollection` containing
+the GeoJSON objects (`FALSE`)}
 }
 \value{
 vector of GeoJSON

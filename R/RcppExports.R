@@ -21,8 +21,8 @@ rcpp_read_sf_file <- function(file, flatten_geometries) {
     .Call(`_geojsonsf_rcpp_read_sf_file`, file, flatten_geometries)
 }
 
-rcpp_sfc_to_geojson <- function(sfc) {
-    .Call(`_geojsonsf_rcpp_sfc_to_geojson`, sfc)
+rcpp_sfc_to_geojson <- function(sfc, atomise) {
+    .Call(`_geojsonsf_rcpp_sfc_to_geojson`, sfc, atomise)
 }
 
 rcpp_sf_to_geojson <- function(sf, atomise) {
